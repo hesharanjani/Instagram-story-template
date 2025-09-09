@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Story Creator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Instagram Story Creator</h1>
+        </header>
+        
+        <div class="main-content">
+            <!-- Left Sidebar -->
+            <aside class="toolbar">
+                <div class="tool-section">
+                    <h3>Text</h3>
+                    <button id="add-text-btn" class="tool-btn">
+                        <i class="fas fa-font"></i> Add Text
+                    </button>
+                    <div class="text-options hidden">
+                        <div class="color-picker">
+                            <input type="color" id="text-color" value="#000000" title="Text Color">
+                            <label for="text-color">Color</label>
+                        </div>
+                        <div class="font-selector">
+                            <select id="font-family" title="Font Family">
+                                <option value="Arial, sans-serif">Arial</option>
+                                <option value="'Helvetica Neue', sans-serif">Helvetica</option>
+                                <option value="'Times New Roman', serif">Times New Roman</option>
+                                <option value="'Courier New', monospace">Courier New</option>
+                                <option value="'Brush Script MT', cursive">Brush Script</option>
+                            </select>
+                            <label for="font-family">Font</label>
+                        </div>
+                        <button id="add-emoji-btn" class="tool-btn" title="Add Emoji">
+                            <i class="far fa-smile"></i> Add Emoji
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tool-section">
+                    <h3>Images</h3>
+                    <input type="file" id="image-upload" accept="image/*" multiple style="display: none;">
+                    <button id="add-image-btn" class="tool-btn">
+                        <i class="fas fa-image"></i> Add Image
+                    </button>
+                </div>
+
+            </aside>
+
+            <!-- Main Canvas -->
+            <div class="canvas-container">
+                <div class="story-canvas" id="story-canvas">
+                    <div class="canvas-content" id="canvas-content">
+                        <!-- Image grid container -->
+                        <div class="image-grid" id="image-grid">
+                            <!-- Images will be inserted here -->
+                        </div>
+                        <!-- Text and other elements will be added here -->
+                        <div class="text-element-template" style="display: none;">
+                            <div class="text-element" contenteditable="true" data-text="Double click to edit">
+                                <div class="text-controls">
+                                    <button class="text-control-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                    <button class="text-control-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="text-edit-toolbar">
+                                    <button class="text-edit-btn" data-command="bold" title="Bold"><i class="fas fa-bold"></i></button>
+                                    <button class="text-edit-btn" data-command="italic" title="Italic"><i class="fas fa-italic"></i></button>
+                                    <button class="text-edit-btn" data-command="underline" title="Underline"><i class="fas fa-underline"></i></button>
+                                    <input type="color" class="color-picker" title="Text Color" value="#000000">
+                                    <select class="font-size-select" title="Font Size">
+                                        <option value="12">12px</option>
+                                        <option value="16" selected>16px</option>
+                                        <option value="20">20px</option>
+                                        <option value="24">24px</option>
+                                        <option value="32">32px</option>
+                                        <option value="48">48px</option>
+                                    </select>
+                                </div>
+                                Double click to edit
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar (for element properties) -->
+            <aside class="properties-panel">
+                <h3>Properties</h3>
+                <div class="properties-content">
+                    <p>Select an element to edit its properties</p>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="app-footer">
+            <button id="add-story-btn" class="gradient-btn">
+                <i class="fas fa-plus-circle"></i> Add Story
+            </button>
+        </footer>
+    </div>
+
+    <!-- Emoji Picker Modal -->
+    <div id="emoji-picker-modal" class="modal">
+        <div class="modal-content">
+            <div class="emoji-picker">
+                <span class="close-modal" title="Close">&times;</span>
+                <h3>Select an Emoji</h3>
+                <div class="emoji-container">
+                    <!-- Tabs and emoji grid will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
